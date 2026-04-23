@@ -1,6 +1,7 @@
 // Importar ejercicios desde la carpeta de Apropiación
 import {
-    Ej1
+    Ej1,
+    saludoAsync
 } from './Apropiación/Index.js';
 
 // Importar ejercicios desde la carpeta de Transferencia
@@ -21,8 +22,8 @@ const ejercicios = {
     },
 
     EjA7: {
-        title: 'Ejercicio 7',
-        desc: 'Descripción del ejercicio 7',
+        title: 'Ejercicio 7 de Apropiación',
+        desc: 'Uso de Async/Await: \nCrear una función async que espere una promesa de 2 segundos y luego muestre el resultado.',
     },
 
     EjInt3: {
@@ -76,17 +77,17 @@ const menu = () => {
 
                     case '7':
                         // Ejercicio 7 de Apropiación
-                        console.log(`\n${EjA7.title} \n${EjA7.desc}`);
-
+                        console.log(`\n${EjA7.title} \n \n${EjA7.desc} \n \nEjecutando ejercicio... \n`);
+                        saludoAsync();
                         break;
 
                     case '10':
                         // Ejercicio Integrador 3
                         console.log(`\n${EjInt3.title} \n${EjInt3.desc}`);
 
-                        break;
+                        return;
 
-                    case '3':
+                    case '11':
                         // Salir
                         console.log('Regresando al menú principal...');
                         
@@ -114,9 +115,9 @@ const menu = () => {
                         // Ejercicio 5 de Transferencia
                         console.log(`\n${EjT5.title}\n${EjT5.desc}`);
                         
-                        break;
+                        return;
                         
-                    case '3':
+                    case '6':
                         // Salir
                         console.log('Regresando al menú principal...');
                         
