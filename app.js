@@ -1,6 +1,6 @@
 // Importar ejercicios desde la carpeta de Apropiación
 import {
-    Ej1,
+    AsincroniaBasica,
     procesarPedido,
     saludoAsync
 } from './Apropiación/Index.js';
@@ -77,8 +77,10 @@ const menu = () => {
                     case '1':
                         // Ejercicio 1 de Apropiación
                         console.log(`\n${EjA1.title} \n${EjA1.desc}`);
-                        Ej1();
-                        break;
+                        
+                        AsincroniaBasica();
+
+                        return;
 
                     case '3':
                         // Ejercicio 3 de Apropiación
