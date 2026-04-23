@@ -1,5 +1,6 @@
 // Importar ejercicios desde la carpeta de Apropiación
 import {
+    Ej1,
     saludoAsync
 } from './Apropiación/Index.js';
 
@@ -15,6 +16,11 @@ const prompt = promptSync();
 // Generación del objeto para el almacenamiento de ejercicios
 const ejercicios = {
   Apropiacion: {
+    EjA1: {
+        title: 'Ejercicio 1',
+        desc: 'Explorando la asincronía básica',
+    },
+
     EjA7: {
         title: 'Ejercicio 7 de Apropiación',
         desc: 'Uso de Async/Await: \nCrear una función async que espere una promesa de 2 segundos y luego muestre el resultado.',
@@ -54,21 +60,26 @@ const menu = () => {
                 // Apropiación
 
                 // Declaración de las variables para almacenar los ejercicios de la categoría de Apropiación
-                const {EjA7, EjInt3} = Apropiacion;
+                const {EjA1, EjA7, EjInt3} = Apropiacion;
 
                 // Selección del ejercicio
-                console.log('\nHas Selecionado Apropiación \nSeleccione un ejercicio: \n7. Ejercicio 7 \n10. Ejercicio Integrador 3 \n11. Salir');
+                console.log('\nHas Selecionado Apropiación \nSeleccione un ejercicio: \n1. Ejercicio 1 \n7. Ejercicio 7 \n10. Ejercicio Integrador 3 \n11. Salir');
                 
                 const Apr_exercise = prompt('Ingrese el número del ejercicio: ');
 
                 switch (Apr_exercise) {
+                    case '1':
+                        // Ejercicio 1 de Apropiación
+                        console.log(`\n${EjA1.title} \n${EjA1.desc}`);
+                        Ej1();
+                        break;
+                        
+
                     case '7':
                         // Ejercicio 7 de Apropiación
                         console.log(`\n${EjA7.title} \n \n${EjA7.desc} \n \nEjecutando ejercicio... \n`);
-
                         saludoAsync();
-
-                        return;
+                        break;
 
                     case '10':
                         // Ejercicio Integrador 3
