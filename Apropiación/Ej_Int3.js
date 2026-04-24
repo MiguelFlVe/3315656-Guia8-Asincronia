@@ -243,9 +243,90 @@ const consultaUsuarioPromesa = () => {
 
 };
 
+const consultaUsuarioAsyncAwait = () => {
+    let continuar = true;
+    
+    const id = [101, 102, 103, 104];
 
+    const roles = [
+        "Gerente General / CEO",
+        "Director Financiero / CFO",
+        "Director de Operaciones / COO",
+        "Gerente de Recursos Humanos",
+        "Gerente de Marketing",
+        "Gerente de Ventas",
+        "Gerente de Tecnología / CIO",
+        "Analista de Datos / BI",
+        "Supervisor de Producción",
+        "Asistente Administrativo"
+    ];
+    
+    const espera = (ms) => {
+        return new Promise((resolve) => setTimeout(resolve, ms));
+    };
+
+    while (continuar) {
+        console.log("Seleccione el usuario a registrar: \n1. 101 \n2. 102 \n3. 103 \n4. 104 \n5. No registrar");
+
+        const usreg = Number(prompt());
+        
+        const select = id[usreg - 1];
+
+        const flujousuario = async (i) => {
+            await espera(1200);
+            
+            let usuario = {id: i, nombre: `Usuario ${select}`};
+
+            await espera(800);
+
+            usuario = { ...usuario, seguridad: Math.random > 0.5 ? "OK" : "Falla"};
+
+            await espera(2000);
+
+            usuario = { ...usuario, rol: roles[Math.floor(Math.random() * roles.length)]};
+
+            await espera(600);
+            
+            console.log(usuario);
+
+        }
+
+        switch (usreg) {
+            case 1:
+                flujousuario(select)
+                
+                break;
+
+            case 2:
+                flujousuario(select)
+                
+                break;
+
+            case 3:
+                flujousuario(select)
+                
+                break;
+
+            case 4:
+                flujousuario(select)
+                
+                break;
+
+            case 5:
+                console.log("Terminando programa.");
+                
+                return;
+        
+            default:
+                console.log("Seleccione una opción válida.");
+                
+                break;
+        }
+    }
+};
 
 export {
     consultaUsuarioBloqueante,
-    consultaUsuarioPromesa
+    consultaUsuarioPromesa,
+    consultaUsuarioAsyncAwait
 };
