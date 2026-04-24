@@ -1,10 +1,12 @@
 // Importar ejercicios desde la carpeta de Apropiación
 import {
-    Ej1,
-    consultaCallbacks,
+    AsincroniaBasica,
+    codigoBloqueante, 
+    procesarPedido,
+    saludoAsync,
+    consultaCallbacks, //Inician los ejercicios de integrador 1
     consultaPromesas,
-    consultaAsync,
-    saludoAsync
+    consultaAsync
 } from './Apropiación/Index.js';
 
 // Importar ejercicios desde la carpeta de Transferencia
@@ -22,6 +24,15 @@ const ejercicios = {
     EjA1: {
         title: 'Ejercicio 1',
         desc: 'Explorando la asincronía básica',
+    },
+    EjA2: {
+        title: 'Ejercicio 2',
+        desc: 'Comportamiento de codigo bloqueante\n',
+    },
+
+    EjA3: {
+        title: 'Ejercicio 3',
+        desc: 'Manejo de asincronía con Callbacks',
     },
     
     EjA7: {
@@ -68,10 +79,10 @@ const menu = () => {
                 // Apropiación
 
                 // Declaración de las variables para almacenar los ejercicios de la categoría de Apropiación
-                const {EjA1, EjA7, EjInt1, EjInt3} = Apropiacion;
+                const {EjA1, EjA2, EjA3, EjA7, EjInt1, EjInt3} = Apropiacion;
 
                 // Selección del ejercicio
-                console.log('\nHas Selecionado Apropiación \nSeleccione un ejercicio: \n1. Ejercicio 1 \n7. Ejercicio 7 \n9. Ejercicio Integrador 1 \n10. Ejercicio Integrador 3 \n11. Salir');
+                console.log('\nHas Selecionado Apropiación \nSeleccione un ejercicio: \n1. Ejercicio 1 \n2. Ejercicio 2 \n3. Ejercicio 3 \n7. Ejercicio 7 \n8. Ejercicio Integrador 1 \n10. Ejercicio Integrador 3 \n11. Salir');
                 
                 const Apr_exercise = prompt('Ingrese el número del ejercicio: ');
 
@@ -79,15 +90,44 @@ const menu = () => {
                     case '1':
                         // Ejercicio 1 de Apropiación
                         console.log(`\n${EjA1.title} \n${EjA1.desc}`);
-                        Ej1();
-                        break;
+                        AsincroniaBasica();
 
-                   
-                    case '7':
+                        return;
+
+                    case '2':
+                        // Ejercicio 2 de Apropiación
+                        console.log(`\n${EjA2.title} \n${EjA2.desc}`);
+                        console.log("Programa iniciado");
+                        codigoBloqueante();
+                        console.log("Programa finalizado");
+                        
+                        return;
+
+                   case '7':
                         // Ejercicio 7 de Apropiación
                         console.log(`\n${EjA7.title} \n \n${EjA7.desc} \n \nEjecutando ejercicio... \n`);
                         saludoAsync();
-                        break;
+                        return;
+
+                    case '8':
+                        // Ejercicio Integrador 1
+                        console.log(`\n${EjInt1.title} \n${EjInt1.desc}`);
+                        console.log("\nEjecutando ejercicio integrador...\n");
+                        
+                        // Callbacks
+                        consultaCallbacks();
+
+                        // Promesas 
+                        setTimeout(() => {
+                        consultaPromesas();
+                        }, 5000);
+
+                        // Async/Await (después de las promesas)
+                        setTimeout(() => {
+                        consultaAsync();
+                        }, 10000);
+ 
+                        return;    
 
                     case '8':
                         // Ejercicio Integrador 1
