@@ -1,7 +1,8 @@
 // Importar ejercicios desde la carpeta de Apropiación
 import {
-    Ej1,
-    codigoBloqueante,
+    AsincroniaBasica,
+    codigoBloqueante, 
+    procesarPedido,
     saludoAsync
 } from './Apropiación/Index.js';
 
@@ -24,6 +25,11 @@ const ejercicios = {
     EjA2: {
         title: 'Ejercicio 2',
         desc: 'Comportamiento de codigo bloqueante\n',
+    },
+
+    EjA3: {
+        title: 'Ejercicio 3',
+        desc: 'Manejo de asincronía con Callbacks',
     },
 
     EjA7: {
@@ -65,10 +71,10 @@ const menu = () => {
                 // Apropiación
 
                 // Declaración de las variables para almacenar los ejercicios de la categoría de Apropiación
-                const {EjA1, EjA2, EjA7, EjInt3} = Apropiacion;
+                const {EjA1, EjA2, EjA3, EjA7, EjInt3} = Apropiacion;
 
                 // Selección del ejercicio
-                console.log('\nHas Selecionado Apropiación \nSeleccione un ejercicio: \n1. Ejercicio 1 \n2. Ejercicio 2 \n7. Ejercicio 7 \n10. Ejercicio Integrador 3 \n11. Salir');
+                console.log('\nHas Selecionado Apropiación \nSeleccione un ejercicio: \n1. Ejercicio 1 \n2. Ejercicio 2 \n3. Ejercicio 3 \n7. Ejercicio 7 \n10. Ejercicio Integrador 3 \n11. Salir');
                 
                 const Apr_exercise = prompt('Ingrese el número del ejercicio: ');
 
@@ -76,7 +82,8 @@ const menu = () => {
                     case '1':
                         // Ejercicio 1 de Apropiación
                         console.log(`\n${EjA1.title} \n${EjA1.desc}`);
-                        Ej1();
+                        AsincroniaBasica();
+
                         return;
 
                     case '2':
@@ -85,6 +92,7 @@ const menu = () => {
                         console.log("Programa iniciado");
                         codigoBloqueante();
                         console.log("Programa finalizado");
+                        
                         return;
                         
 

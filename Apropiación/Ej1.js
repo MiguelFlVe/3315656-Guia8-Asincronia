@@ -7,7 +7,7 @@
  * el orden real de ejecución en asincronía. Si se usa return o promesas, el output
  * se mostraría de forma síncrona y no reflejaría cómo funciona la asincronía en la práctica.
  */
-export const Ej1 = () => {
+export const AsincroniaBasica = () => {
     console.log("Inicio");
     setTimeout(() => {
         console.log("Operación asíncrona completada");
