@@ -104,6 +104,15 @@ const menu = () => {
                         
                         return;
 
+                    case '3':
+                        // Ejercicio 3 de Apropiación
+                        console.log(`\n${EjA3.title} \n${EjA3.desc}`);
+                        console.log("Iniciando pedido");
+                        procesarPedido();
+                        console.log("Pedido finalizado");
+                        
+                        return;
+
                     case '7':
                         // Ejercicio 7 de Apropiación
                         console.log(`\n${EjA7.title} \n \n${EjA7.desc} \n \nEjecutando ejercicio... \n`);
