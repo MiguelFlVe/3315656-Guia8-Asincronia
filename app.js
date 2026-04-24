@@ -83,7 +83,7 @@ const menu = () => {
                         // Ejercicio 1 de Apropiación
                         console.log(`\n${EjA1.title} \n${EjA1.desc}`);
                         AsincroniaBasica();
-                        
+
                         return;
 
                     case '2':
@@ -92,6 +92,7 @@ const menu = () => {
                         console.log("Programa iniciado");
                         codigoBloqueante();
                         console.log("Programa finalizado");
+                        
                         return;
                         
 
