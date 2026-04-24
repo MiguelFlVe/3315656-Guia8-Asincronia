@@ -1,6 +1,9 @@
 // Importar ejercicios desde la carpeta de Apropiación
 import {
     Ej1,
+    consultaCallbacks,
+    consultaPromesas,
+    consultaAsync,
     saludoAsync
 } from './Apropiación/Index.js';
 
@@ -19,6 +22,10 @@ const ejercicios = {
     EjA1: {
         title: 'Ejercicio 1',
         desc: 'Explorando la asincronía básica',
+    },
+    EjInt1: {
+        title: 'Ejercicio Integrador 1',
+        desc: 'Callbacks, promesas, async/await',
     },
 
     EjA7: {
@@ -60,10 +67,10 @@ const menu = () => {
                 // Apropiación
 
                 // Declaración de las variables para almacenar los ejercicios de la categoría de Apropiación
-                const {EjA1, EjA7, EjInt3} = Apropiacion;
+                const {EjA1, EjInt1, EjA7, EjInt3} = Apropiacion;
 
                 // Selección del ejercicio
-                console.log('\nHas Selecionado Apropiación \nSeleccione un ejercicio: \n1. Ejercicio 1 \n7. Ejercicio 7 \n10. Ejercicio Integrador 3 \n11. Salir');
+                console.log('\nHas Selecionado Apropiación \nSeleccione un ejercicio: \n1. Ejercicio 1 \n7. Ejercicio 7 \n9. Ejercicio Integrador 1 \n10. Ejercicio Integrador 3 \n11. Salir');
                 
                 const Apr_exercise = prompt('Ingrese el número del ejercicio: ');
 
@@ -73,13 +80,33 @@ const menu = () => {
                         console.log(`\n${EjA1.title} \n${EjA1.desc}`);
                         Ej1();
                         break;
-                        
 
+                   
                     case '7':
                         // Ejercicio 7 de Apropiación
                         console.log(`\n${EjA7.title} \n \n${EjA7.desc} \n \nEjecutando ejercicio... \n`);
                         saludoAsync();
                         break;
+
+                    case '9':
+                        // Ejercicio Integrador 1
+                        console.log(`\n${EjInt1.title} \n${EjInt1.desc}`);
+                        console.log("\nEjecutando ejercicio integrador...\n");
+                        
+                        // Callbacks
+                        consultaCallbacks();
+
+                        // Promesas 
+                        setTimeout(() => {
+                        consultaPromesas();
+                        }, 5000);
+
+                        // Async/Await (después de las promesas)
+                        setTimeout(() => {
+                        consultaAsync();
+                        }, 10000);
+ 
+                        return;    
 
                     case '10':
                         // Ejercicio Integrador 3
