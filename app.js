@@ -23,14 +23,15 @@ const ejercicios = {
         title: 'Ejercicio 1',
         desc: 'Explorando la asincronía básica',
     },
-    EjInt1: {
-        title: 'Ejercicio Integrador 1',
-        desc: 'Callbacks, promesas, async/await',
-    },
-
+    
     EjA7: {
         title: 'Ejercicio 7 de Apropiación',
         desc: 'Uso de Async/Await: \nCrear una función async que espere una promesa de 2 segundos y luego muestre el resultado.',
+    },
+    
+    EjInt1: {
+        title: 'Ejercicio Integrador 1',
+        desc: 'Callbacks, promesas, async/await',
     },
 
     EjInt3: {
@@ -67,7 +68,7 @@ const menu = () => {
                 // Apropiación
 
                 // Declaración de las variables para almacenar los ejercicios de la categoría de Apropiación
-                const {EjA1, EjInt1, EjA7, EjInt3} = Apropiacion;
+                const {EjA1, EjA7, EjInt1, EjInt3} = Apropiacion;
 
                 // Selección del ejercicio
                 console.log('\nHas Selecionado Apropiación \nSeleccione un ejercicio: \n1. Ejercicio 1 \n7. Ejercicio 7 \n9. Ejercicio Integrador 1 \n10. Ejercicio Integrador 3 \n11. Salir');
@@ -88,7 +89,7 @@ const menu = () => {
                         saludoAsync();
                         break;
 
-                    case '9':
+                    case '8':
                         // Ejercicio Integrador 1
                         console.log(`\n${EjInt1.title} \n${EjInt1.desc}`);
                         console.log("\nEjecutando ejercicio integrador...\n");

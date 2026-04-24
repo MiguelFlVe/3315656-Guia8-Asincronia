@@ -9,7 +9,7 @@
 // • Con async/await
 
 // 1. VERSION CALLBACKS
-export function consultaCallbacks() {
+export const consultaCallbacks = () => {
     console.log("=== CALLBACKS ===");
 
     setTimeout(() => {
@@ -25,10 +25,10 @@ export function consultaCallbacks() {
         }, 2000);
 
     }, 1000);
-}
+};
 
-//   2. VERSION PROMESAS
-export function consultaPromesas() {
+// 2. VERSION PROMESAS
+export const consultaPromesas = () => {
     console.log("=== PROMESAS ===");
 
     const buscarUsuario = () => {
@@ -61,10 +61,10 @@ export function consultaPromesas() {
     buscarUsuario()
         .then(consultarPermisos)
         .then(generarReporte);
-}
+};
 
-//  3. VERSION ASYNC/AWAIT
-export async function consultaAsync() {
+// 3. VERSION ASYNC/AWAIT
+export const consultaAsync = async () => {
     console.log("=== ASYNC/AWAIT ===");
 
     const esperar = (mensaje, tiempo) => {
@@ -79,4 +79,4 @@ export async function consultaAsync() {
     await esperar("Usuario encontrado", 1000);
     await esperar("Permisos consultados", 2000);
     await esperar("Reporte generado", 1000);
-}
+};
