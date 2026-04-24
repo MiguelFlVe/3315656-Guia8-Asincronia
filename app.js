@@ -1,10 +1,11 @@
 // Importar ejercicios desde la carpeta de Apropiación
 import {
-    AsincroniaBasica,
+    AsincroniaBasica, 
     codigoBloqueante, 
-    procesarPedido,
-    saludoAsync,
-    consultaCallbacks, //Inician los ejercicios de integrador 1
+    procesarPedido, 
+    saludoAsync, 
+    //Inician los ejercicios de integrador 1
+    consultaCallbacks, 
     consultaPromesas,
     consultaAsync
 } from './Apropiación/Index.js';
@@ -103,31 +104,11 @@ const menu = () => {
                         
                         return;
 
-                   case '7':
+                    case '7':
                         // Ejercicio 7 de Apropiación
                         console.log(`\n${EjA7.title} \n \n${EjA7.desc} \n \nEjecutando ejercicio... \n`);
                         saludoAsync();
                         return;
-
-                    case '8':
-                        // Ejercicio Integrador 1
-                        console.log(`\n${EjInt1.title} \n${EjInt1.desc}`);
-                        console.log("\nEjecutando ejercicio integrador...\n");
-                        
-                        // Callbacks
-                        consultaCallbacks();
-
-                        // Promesas 
-                        setTimeout(() => {
-                        consultaPromesas();
-                        }, 5000);
-
-                        // Async/Await (después de las promesas)
-                        setTimeout(() => {
-                        consultaAsync();
-                        }, 10000);
- 
-                        return;    
 
                     case '8':
                         // Ejercicio Integrador 1
