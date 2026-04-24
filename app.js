@@ -3,7 +3,10 @@ import {
     AsincroniaBasica,
     codigoBloqueante, 
     procesarPedido,
-    saludoAsync
+    saludoAsync,
+    consultaUsuarioBloqueante,
+    consultaUsuarioPromesa,
+    consultaUsuarioAsyncAwait
 } from './Apropiación/Index.js';
 
 // Importar ejercicios desde la carpeta de Transferencia
@@ -39,7 +42,7 @@ const ejercicios = {
 
     EjInt3: {
         title: 'Ejercicio Integrador 3',
-        desc: 'Descripción del ejercicio 3',
+        desc: 'Simulador de consulta de Usuarios y roles',
     }
   },
   Transferencia: {
@@ -105,6 +108,45 @@ const menu = () => {
                     case '10':
                         // Ejercicio Integrador 3
                         console.log(`\n${EjInt3.title} \n${EjInt3.desc}`);
+
+                        // Elección del código a ejecutar
+
+                        console.log("Seleccione el código que desea revisar (debido a la estructura de este menú, deberá volver a ejecutar la función y regresar a esta sección. Se solicita comprensión): \n1. Código bloqueante \n2. Estructura de promesas \n3. Estructura Async/Await \n4. Salir");
+
+                        const selectEI3 = prompt('Selecciones el código a simular: ');
+                        
+                        switch (selectEI3) {
+                            case '1':
+                                console.log("Ejecutando la simulación del código bloqueante");
+                                
+                                consultaUsuarioBloqueante();
+                                
+                                return;
+
+                            case '2':
+                                console.log("Ejecutando la simulación del código con promesas");
+
+                                consultaUsuarioPromesa();
+
+                                return;
+
+                            case '3':
+                                console.log("Ejecutando la simulación del código con Async/await");
+                                
+                                consultaUsuarioAsyncAwait();
+
+                                return;
+
+                            case '4':
+                                console.log("Regresando al menú anterior.");
+
+                                break;                                
+                        
+                            default:
+                                console.log("Seleccione una opción válida.");
+                                
+                                break;
+                        }
 
                         return;
 

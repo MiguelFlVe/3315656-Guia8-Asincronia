@@ -43,6 +43,9 @@ o Registrar tiempos reales con Date.now().
 o Contrastar con la ejecución basada en promesas.
 */
 
+import promptSync from 'prompt-sync';
+const prompt = promptSync();
+
 const consultaUsuarioBloqueante = () => {
     const id = [101, 102, 103, 104];
 
@@ -107,9 +110,6 @@ const consultaUsuarioBloqueante = () => {
     
 };
 
-import promptSync from 'prompt-sync';
-const prompt = promptSync();
-
 const consultaUsuarioPromesa = () => {
     let continuar = true;
     
@@ -139,93 +139,46 @@ const consultaUsuarioPromesa = () => {
 
         const select = id[usreg - 1];
 
-        switch (usreg) {
-            case 1:
-                let usuario1 = {id: select};
+        const flujousuario = (select) => {
+            let usuario = {id: select};
 
-                console.log(`Consultando usuario ${select}`);
+            console.log(`Consultando usuario ${select}`);
 
-                espera(1200).then(() => {
-                    usuario1 = { ...usuario1, nombre: `Usuario ${select}` };
+            espera(1200).then(() => {
+                usuario = { ...usuario, nombre: `Usuario ${select}` };
 
-                    espera(800).then(() => {
-                        usuario1 = { ...usuario1, seguridad: Math.random() > 0.5 ? "OK" : "FALLA"};
+                espera(800).then(() => {
+                    usuario = { ...usuario, seguridad: Math.random() > 0.5 ? "OK" : "FALLA"};
 
-                        espera(2000).then(() => {
-                            usuario1 = { ...usuario1, rol: roles[Math.floor(Math.random() * roles.length)]};
+                    espera(2000).then(() => {
+                        usuario = { ...usuario, rol: roles[Math.floor(Math.random() * roles.length)]};
 
-                            espera(600).then(() => console.log(usuario1));
+                        espera(600).then(() => console.log(usuario));
 
-                        });
                     });
                 });
+            });
+        }
+
+        switch (usreg) {
+            case 1:
+                flujousuario(select);
 
                 break;
 
             case 2:
-                let usuario2 = {id: select};
-
-                console.log(`Consultando usuario ${select}`);
-
-                espera(1200).then(() => {
-                    usuario2 = { ...usuario2, nombre: `Usuario ${select}` };
-
-                    espera(800).then(() => {
-                        usuario2 = { ...usuario2, seguridad: Math.random() > 0.5 ? "OK" : "FALLA"};
-
-                        espera(2000).then(() => {
-                            usuario2 = { ...usuario2, rol: roles[Math.floor(Math.random() * roles.length)]};
-
-                            espera(600).then(() => console.log(usuario2));
-                            
-                        });
-                    });
-                });
-
+                flujousuario(select);
+                
                 break;
 
             case 3:
-                let usuario3 = {id: select};
-
-                console.log(`Consultando usuario ${select}`);
-
-                espera(1200).then(() => {
-                    usuario3 = { ...usuario3, nombre: `Usuario ${select}` };
-
-                    espera(800).then(() => {
-                        usuario3 = { ...usuario3, seguridad: Math.random() > 0.5 ? "OK" : "FALLA"};
-
-                        espera(2000).then(() => {
-                            usuario3 = { ...usuario3, rol: roles[Math.floor(Math.random() * roles.length)]};
-
-                            espera(600).then(() => console.log(usuario3));
-                            
-                        });
-                    });
-                });
-
+                flujousuario(select);
+                
                 break;
 
             case 4:
-                let usuario4 = {id: select};
-
-                console.log(`Consultando usuario ${select}`);
-
-                espera(1200).then(() => {
-                    usuario4 = { ...usuario4, nombre: `Usuario ${select}` };
-
-                    espera(800).then(() => {
-                        usuario4 = { ...usuario4, seguridad: Math.random() > 0.5 ? "OK" : "FALLA"};
-
-                        espera(2000).then(() => {
-                            usuario4 = { ...usuario4, rol: roles[Math.floor(Math.random() * roles.length)]};
-
-                            espera(600).then(() => console.log(usuario4));
-                            
-                        });
-                    });
-                });
-
+                flujousuario(select);
+                
                 break;
         
             case 5:
