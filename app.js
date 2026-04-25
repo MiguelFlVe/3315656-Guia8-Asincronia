@@ -16,6 +16,7 @@ import {
 
 // Importar ejercicios desde la carpeta de Transferencia
 import {
+    procesarCola,
     procesarEntregas
 } from './Transferencia/Index.js';
 
@@ -56,6 +57,11 @@ const ejercicios = {
     }
   },
   Transferencia: {
+    EjT1: {
+        title: 'Ejercicio 1',
+        desc: 'Gestión de una cola de atención'
+    },
+
     EjT2: {
         title: 'Ejercicio 2',
         desc: 'Entrega de paquetes con tiempos variables'
@@ -208,14 +214,28 @@ const menu = () => {
                 break;
             case '2':
                 // Transferencia
-                const {EjT2, EjT5} = Transferencia;
+                const {EjT1, EjT2, EjT5} = Transferencia;
 
                 // Selección del ejercicio
-                console.log('\nHas Selecionado Transferencia \nSeleccione un ejercicio: \n2. Ejercicio 2 \n5. Ejercicio 5 \n6. Salir');
+                console.log('\nHas Selecionado Transferencia \nSeleccione un ejercicio: \n1. Ejercicio 1 \n2. Ejercicio 2 \n5. Ejercicio 5 \n6. Salir');
                 
                 const Tra_exercise = prompt('Ingrese el número del ejercicio: ');
 
                 switch (Tra_exercise) {
+                    case '1':
+                        // Ejercicio 1 de Transferencia
+                        console.log(`\n${EjT1.title}\n${EjT1.desc}`);
+                        
+                        const usuarios = [
+                          { nombre: "Juan", tiempo: 2000 },
+                          { nombre: "Maria", tiempo: 1500 },
+                          { nombre: "Pedro", tiempo: 3000 }
+                                   ];
+
+                        procesarCola(usuarios);
+                        
+                        return;
+                        
                     case '2':
                         // Ejercicio 2 de Transferencia
                         console.log(`\n${EjT2.title}\n${EjT2.desc}`);
