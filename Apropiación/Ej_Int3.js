@@ -46,22 +46,7 @@ o Contrastar con la ejecución basada en promesas.
 import promptSync from 'prompt-sync';
 const prompt = promptSync();
 
-const consultaUsuarioBloqueante = () => {
-    const id = [101, 102, 103, 104];
-
-    const roles = [
-        "Gerente General / CEO",
-        "Director Financiero / CFO",
-        "Director de Operaciones / COO",
-        "Gerente de Recursos Humanos",
-        "Gerente de Marketing",
-        "Gerente de Ventas",
-        "Gerente de Tecnología / CIO",
-        "Analista de Datos / BI",
-        "Supervisor de Producción",
-        "Asistente Administrativo"
-    ];
-
+const consultaUsuarioBloqueante = (id, roles) => {
     const espera = (ms) => {
         const start = Date.now();
 
@@ -110,28 +95,13 @@ const consultaUsuarioBloqueante = () => {
     
 };
 
-const consultaUsuarioPromesa = () => {
+const consultaUsuarioPromesa = (id, roles) => {
     let continuar = true;
-    
-    const id = [101, 102, 103, 104];
 
-    const roles = [
-        "Gerente General / CEO",
-        "Director Financiero / CFO",
-        "Director de Operaciones / COO",
-        "Gerente de Recursos Humanos",
-        "Gerente de Marketing",
-        "Gerente de Ventas",
-        "Gerente de Tecnología / CIO",
-        "Analista de Datos / BI",
-        "Supervisor de Producción",
-        "Asistente Administrativo"
-    ];
-    
     const espera = (ms) => {
         return new Promise((resolve) => setTimeout(resolve, ms));
     };
-
+    
     while (continuar) {
         console.log("Seleccione el usuario a registrar: \n1. 101 \n2. 102 \n3. 103 \n4. 104 \n5. No registrar");
 
@@ -153,7 +123,11 @@ const consultaUsuarioPromesa = () => {
                     espera(2000).then(() => {
                         usuario = { ...usuario, rol: roles[Math.floor(Math.random() * roles.length)]};
 
-                        espera(600).then(() => console.log(usuario));
+                        espera(600).then(() => {
+                            console.log(`Registro generado para usuario ${select}, por medio de promesas:`);
+                            
+                            console.log(usuario);
+                        });
 
                     });
                 });
@@ -196,28 +170,13 @@ const consultaUsuarioPromesa = () => {
 
 };
 
-const consultaUsuarioAsyncAwait = () => {
+const consultaUsuarioAsyncAwait = (id, roles) => {
     let continuar = true;
-    
-    const id = [101, 102, 103, 104];
 
-    const roles = [
-        "Gerente General / CEO",
-        "Director Financiero / CFO",
-        "Director de Operaciones / COO",
-        "Gerente de Recursos Humanos",
-        "Gerente de Marketing",
-        "Gerente de Ventas",
-        "Gerente de Tecnología / CIO",
-        "Analista de Datos / BI",
-        "Supervisor de Producción",
-        "Asistente Administrativo"
-    ];
-    
     const espera = (ms) => {
         return new Promise((resolve) => setTimeout(resolve, ms));
     };
-
+    
     while (continuar) {
         console.log("Seleccione el usuario a registrar: \n1. 101 \n2. 102 \n3. 103 \n4. 104 \n5. No registrar");
 
@@ -239,6 +198,9 @@ const consultaUsuarioAsyncAwait = () => {
             usuario = { ...usuario, rol: roles[Math.floor(Math.random() * roles.length)]};
 
             await espera(600);
+
+            console.log(`Registro generado para usuario ${select}, por medio de Async/await:`);
+            
             
             console.log(usuario);
 
@@ -278,8 +240,38 @@ const consultaUsuarioAsyncAwait = () => {
     }
 };
 
-export {
-    consultaUsuarioBloqueante,
-    consultaUsuarioPromesa,
-    consultaUsuarioAsyncAwait
-};
+const ejecucionCompleta = async () => {
+    const id = [101, 102, 103, 104];
+
+    const roles = [
+        "Gerente General / CEO",
+        "Director Financiero / CFO",
+        "Director de Operaciones / COO",
+        "Gerente de Recursos Humanos",
+        "Gerente de Marketing",
+        "Gerente de Ventas",
+        "Gerente de Tecnología / CIO",
+        "Analista de Datos / BI",
+        "Supervisor de Producción",
+        "Asistente Administrativo"
+    ];
+
+    const espera = (ms) => {
+        return new Promise((resolve) => setTimeout(resolve, ms));
+    };
+
+    console.log("Ejemplo de código bloqueante");
+
+    consultaUsuarioBloqueante(id, roles);
+
+    console.log("Ejemplo de código con promesas");
+
+    consultaUsuarioPromesa(id, roles);
+
+    console.log("Ejemplo de código con Async/Await");
+
+    consultaUsuarioAsyncAwait(id, roles);
+    
+}
+
+export { ejecucionCompleta };
