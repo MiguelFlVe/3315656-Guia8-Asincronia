@@ -1,24 +1,37 @@
 // Importar ejercicios desde la carpeta de Apropiación
 import {
-    AsincroniaBasica, 
-    codigoBloqueante, 
+    // Ejercicio 1
+    AsincroniaBasica,
+    
+    // Ejercicio 2
+    codigoBloqueante,
+    
+    // Ejercicio 3
     procesarPedido,
+
+    // Ejercicio 7
     saludoAsync,
-    //Inician los ejercicios de integrador 1
+
+    // Ejercicio integrador 1
     consultaCallbacks, 
     consultaPromesas,
     consultaAsync,
-    //Inician los ejercicios de integrador 3
-    consultaUsuarioBloqueante,
-    consultaUsuarioPromesa,
-    consultaUsuarioAsyncAwait
-} from './Apropiación/Index.js';
+    
+    // Ejercicio integrador 3
+    ejecucionCompleta
+} from './Index.js';
 
 // Importar ejercicios desde la carpeta de Transferencia
 import {
+    // Ejercicio 1
     procesarCola,
-    procesarEntregas
-} from './Transferencia/Index.js';
+
+    // Ejercicio 2
+    procesarEntregas,
+
+    // Ejercicio 5
+    ejecutarServicios
+} from './Index.js';
 
 // Inicializar la función prompt-sync para leer entradas del usuario
 import promptSync from 'prompt-sync';
@@ -66,9 +79,10 @@ const ejercicios = {
         title: 'Ejercicio 2',
         desc: 'Entrega de paquetes con tiempos variables'
     },
+    
     EjT5: {
         title: 'Ejercicio 5',
-        desc: 'Descripción del ejercicio 5'
+        desc: 'Integración de servicios: disponibilidad, datos del usuario, historial y recomendaciones'
     }
   }
 };
@@ -131,6 +145,7 @@ const menu = () => {
                         // Ejercicio 7 de Apropiación
                         console.log(`\n${EjA7.title} \n \n${EjA7.desc} \n \nEjecutando ejercicio... \n`);
                         saludoAsync();
+                        
                         return;
 
                     case '8':
@@ -157,44 +172,7 @@ const menu = () => {
                         // Ejercicio Integrador 3
                         console.log(`\n${EjInt3.title} \n${EjInt3.desc}`);
 
-                        // Elección del código a ejecutar
-
-                        console.log("Seleccione el código que desea revisar (debido a la estructura de este menú, deberá volver a ejecutar la función y regresar a esta sección. Se solicita comprensión): \n1. Código bloqueante \n2. Estructura de promesas \n3. Estructura Async/Await \n4. Salir");
-
-                        const selectEI3 = prompt('Selecciones el código a simular: ');
-                        
-                        switch (selectEI3) {
-                            case '1':
-                                console.log("Ejecutando la simulación del código bloqueante");
-                                
-                                consultaUsuarioBloqueante();
-                                
-                                return;
-
-                            case '2':
-                                console.log("Ejecutando la simulación del código con promesas");
-
-                                consultaUsuarioPromesa();
-
-                                return;
-
-                            case '3':
-                                console.log("Ejecutando la simulación del código con Async/await");
-                                
-                                consultaUsuarioAsyncAwait();
-
-                                return;
-
-                            case '4':
-                                console.log("Regresando al menú anterior.");
-
-                                break;                                
-                        
-                            default:
-                                console.log("Seleccione una opción válida.");
-                                
-                                break;
-                        }
+                        ejecucionCompleta();
 
                         return;
 
@@ -230,7 +208,7 @@ const menu = () => {
                           { nombre: "Juan", tiempo: 2000 },
                           { nombre: "Maria", tiempo: 1500 },
                           { nombre: "Pedro", tiempo: 3000 }
-                                   ];
+                        ];
 
                         procesarCola(usuarios);
                         
@@ -253,6 +231,12 @@ const menu = () => {
                     case '5':
                         // Ejercicio 5 de Transferencia
                         console.log(`\n${EjT5.title}\n${EjT5.desc}`);
+
+                        const tiempos = [(Math.random() * 9 + 1) * 1000, (Math.random() * 9 + 1) * 1000, (Math.random() * 9 + 1) * 1000, (Math.random() * 9 + 1) * 1000];
+
+                        const fallos = [Math.random() < 0.25, Math.random() < 0.25, Math.random() < 0.25, Math.random() < 0.25];
+
+                        ejecutarServicios('usuario123', tiempos, fallos);
                         
                         return;
                         
