@@ -16,7 +16,7 @@ import {
 
 // Importar ejercicios desde la carpeta de Transferencia
 import {
-
+    procesarEntregas
 } from './Transferencia/Index.js';
 
 // Inicializar la función prompt-sync para leer entradas del usuario
@@ -56,6 +56,10 @@ const ejercicios = {
     }
   },
   Transferencia: {
+    EjT2: {
+        title: 'Ejercicio 2',
+        desc: 'Entrega de paquetes con tiempos variables'
+    },
     EjT5: {
         title: 'Ejercicio 5',
         desc: 'Descripción del ejercicio 5'
@@ -204,14 +208,28 @@ const menu = () => {
                 break;
             case '2':
                 // Transferencia
-                const {EjT5} = Transferencia;
+                const {EjT2, EjT5} = Transferencia;
 
                 // Selección del ejercicio
-                console.log('\nHas Selecionado Transferencia \nSeleccione un ejercicio: \n5. Ejercicio 5 \n6. Salir');
+                console.log('\nHas Selecionado Transferencia \nSeleccione un ejercicio: \n2. Ejercicio 2 \n5. Ejercicio 5 \n6. Salir');
                 
                 const Tra_exercise = prompt('Ingrese el número del ejercicio: ');
 
                 switch (Tra_exercise) {
+                    case '2':
+                        // Ejercicio 2 de Transferencia
+                        console.log(`\n${EjT2.title}\n${EjT2.desc}`);
+                        const paquetes = [
+                            { id: 1, tiempo: 2000 },
+                            { id: 2, tiempo: 1000 },
+                            { id: 3, tiempo: 3000 },
+                            { id: 4, tiempo: 1500 }
+                        ];
+                        
+                        procesarEntregas(paquetes);
+
+                        return;
+
                     case '5':
                         // Ejercicio 5 de Transferencia
                         console.log(`\n${EjT5.title}\n${EjT5.desc}`);
