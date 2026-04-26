@@ -125,10 +125,67 @@ const consultaPromesas = (orden, tiempo) => {
     // En comparación con el uso de callbacks, las promesas no cambian mucho la estructura del código, considerando nuevamente el uso de setTimeaout anidados. El uso de resolve, sin embargo, permite una mejor forma de tratar los errores, lo cual no era permitido en el uso de callbacks. Así mismo, el tiempo total del proceso se mantiene ligeramente superior a los 5000 ms esperados (aunque un poco menos que con los callbacks, en general, pero no los suficientes como para ser tenidos en cuenta), posiblemente atribuibles a los setTimeout anidados.    
 };
 
-consultaCallbacks(ordenes[0], tiempos, () => {
-    console.log(`Proceso de orden ${ordenes[0].id} completado.`);
-});
+const consultaAsyncAwait = async (orden, tiempo) => {
+    const { verificacion, procesamiento, registro, notificacion } = tiempo;
 
-consultaPromesas(ordenes[0], tiempos).then(() => {
-    console.log(`Proceso de orden ${ordenes[0].id} completado.`);
-});
+    const Inicio = Date.now();
+
+    console.log(`Iniciando proceso de orden ${orden.id} para cliente ${orden.cliente}...`);
+
+    await new Promise((resolve) => setTimeout(() => {
+        console.log(`Orden ${orden.id}: Verificación completada.`);
+        
+        resolve();
+    }, verificacion));
+
+    await new Promise((resolve) => setTimeout(() => {
+        console.log(`Orden ${orden.id}: Procesamiento completado.`);
+        
+        resolve();
+    }, procesamiento));
+
+    await new Promise((resolve) => setTimeout(() => {
+        console.log(`Orden ${orden.id}: Registro completado.`);
+        
+        resolve();
+    }, registro));
+
+    await new Promise((resolve) => setTimeout(() => {
+        console.log(`Orden ${orden.id}: Notificación enviada.`);
+
+        resolve();
+
+        const Fin = Date.now();
+
+        console.log(`Tiempo total del proceso de orden ${orden.id} (con async/await): ${Fin - Inicio} ms`);
+    
+    }, notificacion));
+
+    // En comparación con el uso de callbacks y promesas, el uso de async/await permite una estructura de código mucho más clara, legible y fácil de mantener, considerando que cada proceso se encuentra en un bloque separado, sin anidamientos. Así mismo, el tiempo total del proceso se mantiene ligeramente superior a los 5000 ms esperados, posiblemente atribuibles a los setTimeout utilizados para simular cada proceso.    
+};
+
+const ejecutarEJInt2 = async () => {
+    console.log("Simulando con callbacks");
+
+    for (const orden of ordenes) {
+        await consultaCallbacks(orden, tiempos, () => {
+            console.log(`Proceso de orden ${orden.id} con callbacks finalizado.`);
+        });
+    }
+
+    console.log("\nSimulando con promesas");
+
+    for (const orden of ordenes) {
+        await consultaPromesas(orden, tiempos);
+        console.log(`Proceso de orden ${orden.id} con promesas finalizado.`);
+    }
+
+    console.log("\nSimulando con async/await");
+
+    for (const orden of ordenes) {
+        await consultaAsyncAwait(orden, tiempos);
+        console.log(`Proceso de orden ${orden.id} con async/await finalizado.`);
+    }
+};
+
+export { ejecutarEJInt2 };
