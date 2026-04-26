@@ -8,9 +8,12 @@ import {
     
     // Ejercicio 3
     procesarPedido,
-
+    
     //Ejercicio 4
     ejecutarCallbackHell,
+
+    // Ejercico 5
+    ejecutarPromesas,
 
     // Ejercicio 6
     ejecutarProceso,
@@ -68,6 +71,11 @@ const ejercicios = {
     EjA4: {
         title: 'Ejercicio 4',
         desc: 'Encadenamiento de Callbacks (Callback Hell controlado)',
+    },
+
+    EjA5: {
+        title: 'Ejercicio 5',
+        desc: 'Transformando Callbacks en Promesas',
     },
     
     EjA6: {
@@ -139,10 +147,10 @@ const menu = () => {
                 // Apropiación
 
                 // Declaración de las variables para almacenar los ejercicios de la categoría de Apropiación
-                const {EjA1, EjA2, EjA3, EjA4, EjA6, EjA7, EjInt1, EjInt2, EjInt3} = Apropiacion;
+                const {EjA1, EjA2, EjA3, EjA4, EjA5, EjA6, EjA7, EjInt1, EjInt2, EjInt3} = Apropiacion;
 
                 // Selección del ejercicio
-                console.log('\nHas Selecionado Apropiación \nSeleccione un ejercicio: \n1. Ejercicio 1 \n2. Ejercicio 2 \n3. Ejercicio 3 \n4. Ejercicio 4 \n6. Ejercicio 6 \n7. Ejercicio 7 \n8. Ejercicio Integrador 1 \n9. Ejercicio Integrador 2 \n10. Ejercicio Integrador 3 \n11. Salir');
+                console.log('\nHas Selecionado Apropiación \nSeleccione un ejercicio: \n1. Ejercicio 1 \n2. Ejercicio 2 \n3. Ejercicio 3 \n4. Ejercicio 4 \n5. Ejercicio 5 \n6. Ejercicio 6 \n7. Ejercicio 7 \n8. Ejercicio Integrador 1 \n9. Ejercicio Integrador 2 \n10. Ejercicio Integrador 3 \n11. Salir');
                 
                 const Apr_exercise = prompt('Ingrese el número del ejercicio: ');
 
@@ -172,6 +180,7 @@ const menu = () => {
                         
                         return;
 
+                    
                     case '4':
                         // Ejercicio 4 de Apropiación
                         console.log(`\n${EjA4.title} \n${EjA4.desc}`);
@@ -180,6 +189,15 @@ const menu = () => {
 
                         return;
 
+                    case '5':
+                        // Ejercicio 5 de Apropiación
+                        console.log(`\n${EjA5.title} \n${EjA5.desc}`);
+                        
+                        ejecutarPromesas()
+                        
+                        return;
+                    
+                        
                     case '6':
                         // Ejercicio 6 de Apropiación
                         console.log(`\n${EjA6.title} \n${EjA6.desc}`);
