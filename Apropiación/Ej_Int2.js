@@ -54,19 +54,81 @@ const tiempos = {
 const consultaCallbacks = (orden, tiempo, callback) => {
     const { verificacion, procesamiento, registro, notificacion } = tiempo;
 
+    const Inicio = Date.now();
+
     console.log(`Iniciando proceso de orden ${orden.id} para cliente ${orden.cliente}...`);
+    
     setTimeout(() => {
         console.log(`Orden ${orden.id}: Verificación completada.`);
+        
         setTimeout(() => {
             console.log(`Orden ${orden.id}: Procesamiento completado.`);
+            
             setTimeout(() => {
                 console.log(`Orden ${orden.id}: Registro completado.`);
+                
                 setTimeout(() => {
                     console.log(`Orden ${orden.id}: Notificación enviada.`);
                     callback();
+
+                    const Fin = Date.now();
+
+                    console.log(`Tiempo total del proceso de orden ${orden.id} (con callbacks): ${Fin - Inicio} ms`);
+    
                 }, notificacion);
+    
             }, registro);
+    
         }, procesamiento);
+    
     }, verificacion);
+
+    // Se puede observar el callback hell en la función, considerando que cada proceso se encuentra anidado dentro de un setTimeout que, a su vez, se encuentra al interior de otro setTimeout. Lo anterior, hace difícil leer el código, entender su flujo y su mantenimiento. Así mismo, como resultado, se puede observar un tiempo ligeramente superior a los 5000 ms esperados, posiblemente atribuibles a los callbacks anidados.
 };
 
+const consultaPromesas = (orden, tiempo) => {
+    const { verificacion, procesamiento, registro, notificacion } = tiempo;
+
+    const Inicio = Date.now();
+
+    return new Promise((resolve) => {
+        console.log(`Iniciando proceso de orden ${orden.id} para cliente ${orden.cliente}...`);
+        
+        setTimeout(() => {
+            console.log(`Orden ${orden.id}: Verificación completada.`);
+            
+            setTimeout(() => {
+                console.log(`Orden ${orden.id}: Procesamiento completado.`);
+                
+                setTimeout(() => {
+                    console.log(`Orden ${orden.id}: Registro completado.`);
+                    
+                    setTimeout(() => {
+                        console.log(`Orden ${orden.id}: Notificación enviada.`);
+                    
+                        resolve();
+
+                        const Fin = Date.now();
+
+                        console.log(`Tiempo total del proceso de orden ${orden.id} (con promesas): ${Fin - Inicio} ms`);
+                    
+                    }, notificacion);
+                
+                }, registro);
+            
+            }, procesamiento);
+        
+        }, verificacion);
+    
+    });
+
+    // En comparación con el uso de callbacks, las promesas no cambian mucho la estructura del código, considerando nuevamente el uso de setTimeaout anidados. El uso de resolve, sin embargo, permite una mejor forma de tratar los errores, lo cual no era permitido en el uso de callbacks. Así mismo, el tiempo total del proceso se mantiene ligeramente superior a los 5000 ms esperados (aunque un poco menos que con los callbacks, en general, pero no los suficientes como para ser tenidos en cuenta), posiblemente atribuibles a los setTimeout anidados.    
+};
+
+consultaCallbacks(ordenes[0], tiempos, () => {
+    console.log(`Proceso de orden ${ordenes[0].id} completado.`);
+});
+
+consultaPromesas(ordenes[0], tiempos).then(() => {
+    console.log(`Proceso de orden ${ordenes[0].id} completado.`);
+});
