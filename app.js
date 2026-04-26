@@ -9,6 +9,9 @@ import {
     // Ejercicio 3
     procesarPedido,
 
+    // Ejercicio 6
+    ejecutarProceso,
+
     // Ejercicio 7
     saludoAsync,
 
@@ -54,6 +57,11 @@ const ejercicios = {
         desc: 'Manejo de asincronía con Callbacks',
     },
     
+    EjA6: {
+        title: 'Ejercicio 6 de Apropiación',
+        desc: 'Manejo de errores con Promesas',
+    },
+
     EjA7: {
         title: 'Ejercicio 7 de Apropiación',
         desc: 'Uso de Async/Await: \nCrear una función async que espere una promesa de 2 segundos y luego muestre el resultado.',
@@ -108,10 +116,10 @@ const menu = () => {
                 // Apropiación
 
                 // Declaración de las variables para almacenar los ejercicios de la categoría de Apropiación
-                const {EjA1, EjA2, EjA3, EjA7, EjInt1, EjInt3} = Apropiacion;
+                const {EjA1, EjA2, EjA3, EjA6, EjA7, EjInt1, EjInt3} = Apropiacion;
 
                 // Selección del ejercicio
-                console.log('\nHas Selecionado Apropiación \nSeleccione un ejercicio: \n1. Ejercicio 1 \n2. Ejercicio 2 \n3. Ejercicio 3 \n7. Ejercicio 7 \n8. Ejercicio Integrador 1 \n10. Ejercicio Integrador 3 \n11. Salir');
+                console.log('\nHas Selecionado Apropiación \nSeleccione un ejercicio: \n1. Ejercicio 1 \n2. Ejercicio 2 \n3. Ejercicio 3 \n6. Ejercicio 6 \n7. Ejercicio 7 \n8. Ejercicio Integrador 1 \n10. Ejercicio Integrador 3 \n11. Salir');
                 
                 const Apr_exercise = prompt('Ingrese el número del ejercicio: ');
 
@@ -139,6 +147,14 @@ const menu = () => {
                         procesarPedido();
                         console.log("Pedido finalizado");
                         
+                        return;
+
+                    case '6':
+                        // Ejercicio 6 de Apropiación
+                        console.log(`\n${EjA6.title} \n${EjA6.desc}`);
+                        
+                        ejecutarProceso();
+
                         return;
 
                     case '7':

@@ -18,6 +18,8 @@ const procesoConError = () => {
 })};
 
 const ejecutarProceso = async () => {
+    console.log(`Simulando proceso con 50% de probabilidad de fallar`);
+    
     await procesoConError()
         .then(() => {
             console.log('Proceso exitoso');
@@ -27,4 +29,4 @@ const ejecutarProceso = async () => {
         });
 };
 
-ejecutarProceso();
+export { ejecutarProceso };
