@@ -171,6 +171,7 @@ const menu = () => {
                         
                         return;
 
+                    
                     case '4':
                         // Ejercicio 4 de Apropiación
                         console.log(`\n${EjA4.title} \n${EjA4.desc}`);
