@@ -9,6 +9,9 @@ import {
     // Ejercicio 3
     procesarPedido,
 
+    //Ejercicio 4
+    ejecutarCallbackHell,
+
     // Ejercicio 6
     ejecutarProceso,
 
@@ -55,6 +58,10 @@ const ejercicios = {
     EjA3: {
         title: 'Ejercicio 3',
         desc: 'Manejo de asincronía con Callbacks',
+    },
+    EjA4: {
+        title: 'Ejercicio 4',
+        desc: 'Encadenamiento de Callbacks (Callback Hell controlado)',
     },
     
     EjA6: {
@@ -116,10 +123,10 @@ const menu = () => {
                 // Apropiación
 
                 // Declaración de las variables para almacenar los ejercicios de la categoría de Apropiación
-                const {EjA1, EjA2, EjA3, EjA6, EjA7, EjInt1, EjInt3} = Apropiacion;
+                const {EjA1, EjA2, EjA3, EjA4, EjA6, EjA7, EjInt1, EjInt3} = Apropiacion;
 
                 // Selección del ejercicio
-                console.log('\nHas Selecionado Apropiación \nSeleccione un ejercicio: \n1. Ejercicio 1 \n2. Ejercicio 2 \n3. Ejercicio 3 \n6. Ejercicio 6 \n7. Ejercicio 7 \n8. Ejercicio Integrador 1 \n10. Ejercicio Integrador 3 \n11. Salir');
+                console.log('\nHas Selecionado Apropiación \nSeleccione un ejercicio: \n1. Ejercicio 1 \n2. Ejercicio 2 \n3. Ejercicio 3 \n4. Ejercicio 4 \n6. Ejercicio 6 \n7. Ejercicio 7 \n8. Ejercicio Integrador 1 \n10. Ejercicio Integrador 3 \n11. Salir');
                 
                 const Apr_exercise = prompt('Ingrese el número del ejercicio: ');
 
@@ -147,6 +154,14 @@ const menu = () => {
                         procesarPedido();
                         console.log("Pedido finalizado");
                         
+                        return;
+
+                    case '4':
+                        // Ejercicio 4 de Apropiación
+                        console.log(`\n${EjA4.title} \n${EjA4.desc}`);
+                        
+                        ejecutarCallbackHell();
+
                         return;
 
                     case '6':
