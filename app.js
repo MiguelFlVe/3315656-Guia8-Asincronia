@@ -22,6 +22,9 @@ import {
     consultaCallbacks, 
     consultaPromesas,
     consultaAsync,
+
+    // Ejercicio integrador 2
+    ejecutarEJInt2,
     
     // Ejercicio integrador 3
     ejecucionCompleta
@@ -79,6 +82,11 @@ const ejercicios = {
         desc: 'Callbacks, promesas, async/await',
     },
 
+    EjInt2: {
+        title: 'Ejercicio Integrador 2',
+        desc: 'Simulador de procesamiento de órdenes con callbacks, promesas y async/await',
+    },
+
     EjInt3: {
         title: 'Ejercicio Integrador 3',
         desc: 'Simulador de consulta de Usuarios y roles',
@@ -123,10 +131,10 @@ const menu = () => {
                 // Apropiación
 
                 // Declaración de las variables para almacenar los ejercicios de la categoría de Apropiación
-                const {EjA1, EjA2, EjA3, EjA4, EjA6, EjA7, EjInt1, EjInt3} = Apropiacion;
+                const {EjA1, EjA2, EjA3, EjA4, EjA6, EjA7, EjInt1, EjInt2, EjInt3} = Apropiacion;
 
                 // Selección del ejercicio
-                console.log('\nHas Selecionado Apropiación \nSeleccione un ejercicio: \n1. Ejercicio 1 \n2. Ejercicio 2 \n3. Ejercicio 3 \n4. Ejercicio 4 \n6. Ejercicio 6 \n7. Ejercicio 7 \n8. Ejercicio Integrador 1 \n10. Ejercicio Integrador 3 \n11. Salir');
+                console.log('\nHas Selecionado Apropiación \nSeleccione un ejercicio: \n1. Ejercicio 1 \n2. Ejercicio 2 \n3. Ejercicio 3 \n4. Ejercicio 4 \n6. Ejercicio 6 \n7. Ejercicio 7 \n8. Ejercicio Integrador 1 \n9. Ejercicio Integrador 2 \n10. Ejercicio Integrador 3 \n11. Salir');
                 
                 const Apr_exercise = prompt('Ingrese el número del ejercicio: ');
 
@@ -197,7 +205,15 @@ const menu = () => {
                         consultaAsync();
                         }, 10000);
  
-                        return;    
+                        return;
+
+                    case '9':
+                        // Ejercicio Integrador 2
+                        console.log(`\n${EjInt2.title} \n${EjInt2.desc}`);
+
+                        ejecutarEJInt2();
+
+                        return;
 
                     case '10':
                         // Ejercicio Integrador 3

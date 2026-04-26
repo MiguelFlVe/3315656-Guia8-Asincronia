@@ -5,7 +5,8 @@ export * from "./Apropiación/Ej3.js";
 export * from "./Apropiación/Ej4.js";
 export * from "./Apropiación/Ej6.js";
 export * from "./Apropiación/Ej7.js";
-export * from "./Apropiación/Ej_Int1.js"
+export * from "./Apropiación/Ej_Int1.js";
+export * from "./Apropiación/Ej_Int2.js";
 export * from "./Apropiación/Ej_Int3.js";
 
 // Exportar ejercicios desde la carpeta de Transferencia
