@@ -40,6 +40,9 @@ import {
     // Ejercicio 2
     procesarEntregas,
 
+    //Ejercicio 3
+    validarFormulario,
+
     // Ejercicio 5
     ejecutarServicios
 } from './Index.js';
@@ -108,6 +111,11 @@ const ejercicios = {
     EjT2: {
         title: 'Ejercicio 2',
         desc: 'Entrega de paquetes con tiempos variables'
+    },
+
+    EjT3: {
+        title: 'Ejercicio 3',
+        desc: 'Validación de un formulario con múltiples verificaciones externas'
     },
     
     EjT5: {
@@ -256,10 +264,10 @@ const menu = () => {
                 break;
             case '2':
                 // Transferencia
-                const {EjT1, EjT2, EjT5} = Transferencia;
+                const {EjT1, EjT2, EjT3, EjT5} = Transferencia;
 
                 // Selección del ejercicio
-                console.log('\nHas Selecionado Transferencia \nSeleccione un ejercicio: \n1. Ejercicio 1 \n2. Ejercicio 2 \n5. Ejercicio 5 \n6. Salir');
+                console.log('\nHas Selecionado Transferencia \nSeleccione un ejercicio: \n1. Ejercicio 1 \n2. Ejercicio 2 \n3. Ejercicio 3 \n5. Ejercicio 5 \n6. Salir');
                 
                 const Tra_exercise = prompt('Ingrese el número del ejercicio: ');
 
@@ -289,6 +297,19 @@ const menu = () => {
                         ];
                         
                         procesarEntregas(paquetes);
+
+                        return;
+
+                    case '3':
+                        // Ejercicio 3 de Transferencia
+                        console.log(`\n${EjT3.title}\n${EjT3.desc}`);
+                        const usuario = {
+                           correo: "mao@gmail.com",
+                           documento: "1095949",
+                           nombre: "Oscar Solano"
+                               };
+
+                        validarFormulario(usuario);
 
                         return;
 
