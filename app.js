@@ -41,6 +41,9 @@ import {
     //Ejercicio 3
     validarFormulario,
 
+    // Ejercicio 4
+    procesarPedido,
+
     // Ejercicio 5
     ejecutarServicios
 } from './Index.js';
@@ -109,6 +112,11 @@ const ejercicios = {
     EjT3: {
         title: 'Ejercicio 3',
         desc: 'Validación de un formulario con múltiples verificaciones externas'
+    },
+
+    EjT4: {
+        title: 'Ejercicio 4',
+        desc: 'Procesamiento de pedidos con pasos obligatorios y opcionales'
     },
     
     EjT5: {
@@ -247,10 +255,10 @@ const menu = () => {
                 break;
             case '2':
                 // Transferencia
-                const {EjT1, EjT2, EjT3, EjT5} = Transferencia;
+                const {EjT1, EjT2, EjT3, EjT4, EjT5} = Transferencia;
 
                 // Selección del ejercicio
-                console.log('\nHas Selecionado Transferencia \nSeleccione un ejercicio: \n1. Ejercicio 1 \n2. Ejercicio 2 \n3. Ejercicio 3 \n5. Ejercicio 5 \n6. Salir');
+                console.log('\nHas Selecionado Transferencia \nSeleccione un ejercicio: \n1. Ejercicio 1 \n2. Ejercicio 2 \n3. Ejercicio 3 \n4. Ejercicio 4 \n5. Ejercicio 5 \n6. Salir');
                 
                 const Tra_exercise = prompt('Ingrese el número del ejercicio: ');
 
@@ -295,6 +303,16 @@ const menu = () => {
                         validarFormulario(usuario);
 
                         return;
+
+                    case '4':
+                        // Ejercicio 4 de Transferencia
+                        console.log(`\n${EjT4.title}\n${EjT4.desc}`);
+
+                        const pedidoId = "12345";
+                        
+                        const tiempos = { validarStock: 2000, calcularCostos: 3000, generarRecomendacion: 1500 };
+                        
+                        procesarPedido(pedidoId, tiempos);
 
                     case '5':
                         // Ejercicio 5 de Transferencia

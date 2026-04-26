@@ -13,4 +13,5 @@ export * from "./Apropiación/Ej_Int3.js";
 export * from "./Transferencia/Ej1.js";
 export * from "./Transferencia/Ej2.js";
 export * from "./Transferencia/Ej3.js";
+export * from "./Transferencia/Ej4.js";
 export * from "./Transferencia/Ej5.js";
